@@ -1,4 +1,4 @@
-export function statement(invoice, plays) {
+function renderPlainText(invoice, plays) {
   let result = `Statement for ${invoice.customer}\n`;
   for (let perf of invoice.performances) {
     result += ` ${playFor(perf).name}: ${usd(amountFor(perf))}`
@@ -68,6 +68,10 @@ export function statement(invoice, plays) {
     }
     return result
   }
+}
+
+export function statement(invoice, plays) {
+  return renderPlainText(invoice, plays)
 }
 
 export { statement };
