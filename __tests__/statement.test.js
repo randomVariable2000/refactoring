@@ -63,4 +63,21 @@ describe('1', () => {
           "
         `)
     })
+
+    it('3', () => {
+        expect(() => statement(
+            {
+                "customer": "BigCo",
+                "performances": [
+                    {
+                        "playID": "hamlet",
+                        "audience": 55
+                    }
+                ]
+            },
+            {
+                "hamlet": { "name": "Hamlet", "type": "unknow type" }
+            }
+        )).toThrowErrorMatchingInlineSnapshot(`[Error: unknown type: unknow type]`)
+    })
 })
